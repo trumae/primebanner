@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"math"
 	"math/big"
 	"strings"
 )
@@ -334,6 +335,10 @@ func banner2BigInt(b string) *big.Int {
 func main() {
 	var text string
 	flag.StringVar(&text, "text", "banner", "text to banner")
+
+	var nbases int
+	flag.IntVar(&nbases, "nbase", 6, "number of pseudorandomly chosen bases")
+
 	flag.Parse()
 
 	banner := text2banner(strings.ToLower(text))
@@ -345,12 +350,15 @@ func main() {
 			for _, c := range digits {
 				runes := []rune(nbanner)
 				runes[idx] = c
-				//log.Println(string(runes))
+
 				bi := banner2BigInt(string(runes))
-				prime := bi.ProbablyPrime(6)
+				prime := bi.ProbablyPrime(nbases)
 				if prime {
+					fmt.Println("* BANNER\n")
 					fmt.Println(string(runes))
+					fmt.Println("* NUMBER\n")
 					fmt.Println(bi)
+					fmt.Println("\nThe probability of the chosen number being prime is", 1.0-1/math.Pow(4, float64(nbases)))
 					return
 				}
 			}
