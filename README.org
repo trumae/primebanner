@@ -1,0 +1,7 @@
+* PrimeBanner
+
+PrimeBanner is a banner generator. The results are banner where the number values are prime.
+
+** author
+
+Vinícius Valente Maciel <trumae@gmail.com>
