@@ -1,6 +1,10 @@
 * PrimeBanner
 
-PrimeBanner is a banner generator. The results are banner where the number values are prime.
+PrimeBanner is a banner generator. The results are banners where the number values are prime.
+
+Today, i saw a [[https://twitter.com/fermatslibrary/status/972473908363452416][tweet]] from Fermat's Library. 
+And i thought, why not? Then i wrote this program to generate my own prime banners.
+
 
 ** Examples
 
